@@ -1,0 +1,25 @@
+FUNCTION IsPalindrome(word: STRING) : BOOLEAN
+BEGIN
+    // Base case: An empty word or a word containing a single character is a palindrome
+    IF LENGTH(word) <= 1 THEN
+        RETURN TRUE
+    ELSE
+        // Compare the characters located at the ends of the word
+        IF FIRST_CHARACTER(word) = LAST_CHARACTER(word) THEN
+            // Recursively test the rest of the word
+            RETURN IsPalindrome(SUBSTRING(word, 2, LENGTH(word) - 2))
+        ELSE
+            // If the characters at the ends are different, it s not a palindrome
+            RETURN FALSE
+        END_IF
+    END_IF
+END
+
+
+
+
+1-The function IsPalindrome takes a word as input and returns a boolean indicating whether the word is a palindrome.
+2-It starts with a base case: if the length of the word is 0 or 1, it s considered a palindrome.
+3-Otherwise, it compares the first and last characters of the word.
+4-If they are equal, the function recursively checks the remaining substring excluding the first and last characters.
+5-If they are not equal, it returns False immediately.
